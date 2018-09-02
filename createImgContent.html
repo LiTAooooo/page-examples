@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>基于伪元素的图片内容生成示例</title>
+	<style type="text/css">
+		body {
+			margin: 0;
+			background-color: skyblue;
+		}
+
+		img {
+			overflow: hidden;
+			display: inline-block;
+			position: relative;
+			width: 231px;
+			height: 202px;
+			color: transparent;
+		}
+
+		img:not([src]) {
+			visibility: hidden;
+		}
+
+		img:before {
+			content: "";
+			display: block;
+			width: 100%;
+			height: 100%;
+			visibility: visible;
+			background-color: lightgreen;
+		}
+
+		img:after {
+			content: attr(alt);
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			visibility: visible;
+			color: #fff;
+			background-color: rgba(0,0,0,.5);
+			text-align: center;
+			transform: translateY(100%);
+			transition: transform .2s;
+		}
+
+		img:hover:after {
+			transform: translateY(0);
+		}
+
+		div {
+			background-color: orange;
+		}
+	</style>
+</head>
+<body>
+	<img alt="这是一道美味的佳肴">
+	<div>图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容图片下方的文本内容</div>
+</body>
+</html>
